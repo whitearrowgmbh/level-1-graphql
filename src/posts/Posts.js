@@ -11,20 +11,22 @@ class Posts extends Component {
 	render()
 	{
 		return (
-			<Query query={POSTS_QUERY}>
-				{
-					({ loading, data }) => {
-						if (loading)
-						{
-							return 'loading...';
-						}
+			<ul>
+				<Query query={POSTS_QUERY}>
+					{
+						({ loading, data }) => {
+							if (loading)
+							{
+								return 'loading...';
+							}
 
-						const { posts } = data;
-						return posts.map(post => <Link key={post.id}
-													   to={`/post/${post.id}`}><h1>{post.title}</h1></Link>);
+							const { posts } = data;
+							return posts.map(post => <li key={post.id}><Link
+								to={`/post/${post.id}`}>{post.title}</Link></li>);
+						}
 					}
-				}
-			</Query>
+				</Query>
+			</ul>
 		);
 	}
 }

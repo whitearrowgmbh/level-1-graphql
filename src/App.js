@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from 'react-apollo';
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Post from './posts/Post';
 import Posts from './posts/Posts';
 
