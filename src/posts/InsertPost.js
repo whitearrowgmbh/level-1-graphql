@@ -3,9 +3,9 @@
  * WhiteArrow GmbH, DE-85405 Nandlstadt
  */
 import React, {Component} from 'react';
+import PostForm from './PostForm';
 import {Mutation} from 'react-apollo';
 import gql from 'graphql-tag';
-import PostForm from './PostForm';
 
 class InsertPost extends Component {
 
