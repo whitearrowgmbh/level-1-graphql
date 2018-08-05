@@ -54,7 +54,6 @@ main {
 }
 
 .posts-listing {
-    list-style: none;
     padding: 0px;
     margin: 2rem auto;
 }
