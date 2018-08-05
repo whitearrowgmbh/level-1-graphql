@@ -18,22 +18,27 @@ class Post extends Component {
 							return <h1>Loading...</h1>;
 						}
 
-						const { post } = data;
+						const { post, isEditMode } = data;
 						return (
 							<div>
-								<section>
-									<h1>
-										{post.id}: {post.title}
-									</h1>
-									<br/>
-									{post.body}
-								</section>
-								<section>
-									<h1>
-										Edit Post
-										<UpdatePost post={post}/>
-									</h1>
-								</section>
+								{isEditMode ? (
+										<section>
+											<h1>
+												Edit Post
+												<UpdatePost post={post}/>
+											</h1>
+										</section>
+									) :
+									(
+										<section>
+											<h1>
+												{post.id}: {post.title}
+											</h1>
+											<br/>
+											{post.body}
+										</section>
+									)}
+
 							</div>
 						);
 					}
@@ -53,5 +58,6 @@ query post($id: ID!) {
     title
     createdAt
   }
+  isEditMode @client
 }
 `;
