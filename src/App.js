@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from 'react-apollo';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import InsertPost from './posts/InsertPost';
 import Post from './posts/Post';
 import Posts from './posts/Posts';
 
@@ -25,18 +26,24 @@ class App extends Component {
 		return (
 			<ApolloProvider client={client}>
 				<Router>
-					<div className="App">}
+					<div className="App">
 						<header className="App-header">
 							<img src={logo}
 								 className="App-logo"
 								 alt="logo"/>
-							<h1 className="App-title">Welcome to React</h1>
+							<Link to={'/'}
+								  className="App-title">Welcome to React</Link>
 						</header>
+
+						<Link to={'/post/new'}>New Post</Link>
 
 						<Switch>
 							<Route exact
 								   path='/'
 								   component={Posts}/>
+							<Route exact
+								   path='/post/new'
+								   component={InsertPost}/>
 							<Route path="/post/:id"
 								   component={Post}/>
 						</Switch>
