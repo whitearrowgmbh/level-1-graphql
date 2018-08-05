@@ -39,11 +39,12 @@ class UpdatePost extends Component {
 }
 
 const UPDATE_POST = gql`
-mutation updatePost($id: ID!, $title: String, $body: String) {
-  updatePost(where: {id: $id}, data: {status: PUBLISHED, title: $title, body: $body}) {
+mutation updatePost($id: ID!, $title: String, $body: String, $check: Boolean) {
+  updatePost(where: {id: $id}, data: {status: PUBLISHED, title: $title, body: $body, check: $check}) {
     id
     title
     body
+    check
   }
 }
 `
