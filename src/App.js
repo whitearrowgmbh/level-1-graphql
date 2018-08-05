@@ -34,10 +34,12 @@ class App extends Component {
 						</header>
 
 						<Switch>
+							<Route exact
+								   path='/'
+								   component={Posts}/>
 							<Route path="/post/:id"
 								   component={Post}/>
 						</Switch>
-						<Posts/>
 					</div>
 				</Router>
 			</ApolloProvider>

@@ -21,8 +21,12 @@ class Posts extends Component {
 							}
 
 							const { posts } = data;
-							return posts.map(post => <li key={post.id}><Link
-								to={`/post/${post.id}`}>{post.title}</Link></li>);
+							return posts.map(post =>
+												 <li key={post.id}>
+													 <Link to={`/post/${post.id}`}>
+														 {post.title}
+													 </Link>
+												 </li>);
 						}
 					}
 				</Query>
