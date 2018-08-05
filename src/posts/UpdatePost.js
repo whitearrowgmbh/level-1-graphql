@@ -19,10 +19,19 @@ class UpdatePost extends Component {
 				<Mutation
 					mutation={UPDATE_POST}
 				>
-					{updatePost => (
-						<PostForm onSubmit={updatePost}
-								  post={post}/>
-					)}
+					{(updatePost, result) => {
+						console.log('UpdatePost - result(): ', result);
+
+						const onSuccess = () => {
+							console.log('UpdatePost - onSuccess(): running...');
+							result.client.writeData({ data: { isEditMode: false } });
+						};
+
+						return <PostForm onSubmit={updatePost}
+										 onSuccess={onSuccess}
+										 post={post}/>;
+					}
+					}
 				</Mutation>
 			</div>
 		);

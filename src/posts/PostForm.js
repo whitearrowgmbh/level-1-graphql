@@ -8,12 +8,14 @@ import PropTypes from 'prop-types';
 class PostForm extends Component {
 
 	static propTypes = {
-		onSubmit: PropTypes.func.isRequired,
-		post    : PropTypes.object
+		onSubmit : PropTypes.func.isRequired,
+		onSuccess: PropTypes.func,
+		post     : PropTypes.object
 	};
 
 	static defaultProps = {
-		post: {}
+		post     : {},
+		onSuccess: () => null
 	};
 
 	state = {
@@ -32,7 +34,7 @@ class PostForm extends Component {
 
 	render()
 	{
-		const { onSubmit } = this.props;
+		const { onSubmit, onSuccess } = this.props;
 		const { title, body, id } = this.state;
 
 		return (
@@ -43,9 +45,10 @@ class PostForm extends Component {
 						variables: { title, body, id }
 					})
 					.then(() => {
-						this.setState({ title: '', body: '' });
+						onSuccess();
+						// this.setState({ title: '', body: '' });
 					})
-					.catch((err) => console.log('InsertPost - exception(): ', err));
+					.catch((err) => console.log('PostForm - exception(): ', err));
 			}}>
 				<input type='text'
 					   value={title}
