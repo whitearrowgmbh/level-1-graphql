@@ -59,7 +59,7 @@ class PostForm extends Component {
 						  onChange={this.handleInput}
 						  placeholder='body'/>
 				<br/>
-				<button>Submit</button>
+				<button className="button">Submit</button>
 			</form>
 		);
 	}

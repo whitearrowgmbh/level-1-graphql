@@ -36,18 +36,19 @@ class App extends Component {
 								  className="App-title">Welcome to React</Link>
 						</header>
 
-						<Link to={'/post/new'}>New Post</Link>
 
-						<Switch>
-							<Route exact
-								   path='/'
-								   component={Posts}/>
-							<Route exact
-								   path='/post/new'
-								   component={InsertPost}/>
-							<Route path="/post/:id"
-								   component={Post}/>
-						</Switch>
+						<main>
+							<Switch>
+								<Route exact
+									   path='/'
+									   component={Posts}/>
+								<Route exact
+									   path='/post/new'
+									   component={InsertPost}/>
+								<Route path="/post/:id"
+									   component={Post}/>
+							</Switch>
+						</main>
 					</div>
 				</Router>
 			</ApolloProvider>
